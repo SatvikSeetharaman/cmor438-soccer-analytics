@@ -1,0 +1,79 @@
+{
+  "prediction": {
+    "request_id": "ffa4feeb-f08a-4ab1-bb6e-de57e8b375a8",
+    "artifact_version": "football-reference-v1-f5a6e664a223",
+    "probabilities": {
+      "away": 0.570660715574452,
+      "draw": 0.18862244435082717,
+      "home": 0.24071684007472094
+    },
+    "goal_difference": -0.4275328429285573,
+    "home_profile": {
+      "elo": 1607.3598211610874,
+      "recent_games": 5.0,
+      "goals_for": 1.8,
+      "goals_against": 1.6,
+      "points": 1.8
+    },
+    "away_profile": {
+      "elo": 1768.6202843118228,
+      "recent_games": 5.0,
+      "goals_for": 1.8,
+      "goals_against": 0.8,
+      "points": 2.6
+    }
+  },
+  "invalid_team_status": 422,
+  "reversed_feature_order": "startup rejected",
+  "original_artifact": "healthy",
+  "prediction_logs": [
+    {
+      "artifact_version": "football-reference-v1-f5a6e664a223",
+      "latency_ms": 351.9,
+      "level": "INFO",
+      "logger": "dsm_project.service.football",
+      "message": "matchup prediction request",
+      "model_name": "reference:logistic_c_0_1+ridge_10",
+      "request_id": "ffa4feeb-f08a-4ab1-bb6e-de57e8b375a8",
+      "status_code": 200,
+      "timestamp": "2026-11-20T11:10:32.486674+00:00",
+      "validation_failure": false
+    },
+    {
+      "artifact_version": "football-reference-v1-f5a6e664a223",
+      "latency_ms": 0.97,
+      "level": "WARNING",
+      "logger": "dsm_project.service.football",
+      "message": "matchup prediction request",
+      "model_name": "reference:logistic_c_0_1+ridge_10",
+      "request_id": "3f936f1b-5fc6-43f4-9192-8f495a3677bc",
+      "status_code": 422,
+      "timestamp": "2026-11-20T11:10:32.496910+00:00",
+      "validation_failure": true
+    },
+    {
+      "artifact_version": "football-reference-v1-f5a6e664a223",
+      "latency_ms": 0.94,
+      "level": "WARNING",
+      "logger": "dsm_project.service.football",
+      "message": "matchup prediction request",
+      "model_name": "reference:logistic_c_0_1+ridge_10",
+      "request_id": "4e73168e-97d5-441a-9ffa-09884a7e7d3a",
+      "status_code": 422,
+      "timestamp": "2026-11-20T11:10:32.500883+00:00",
+      "validation_failure": true
+    },
+    {
+      "artifact_version": "football-reference-v1-f5a6e664a223",
+      "latency_ms": 1.36,
+      "level": "WARNING",
+      "logger": "dsm_project.service.football",
+      "message": "matchup prediction request",
+      "model_name": "reference:logistic_c_0_1+ridge_10",
+      "request_id": "ba345a2f-8a34-49bb-b72d-a9d18dbdc530",
+      "status_code": 422,
+      "timestamp": "2026-11-20T11:10:32.506089+00:00",
+      "validation_failure": true
+    }
+  ]
+}

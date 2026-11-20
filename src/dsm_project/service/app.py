@@ -37,6 +37,10 @@ def create_app(artifact_directory: str | Path) -> FastAPI:
     """Create a service whose behavior is fixed by one model bundle."""
 
     bundle = load_bundle(artifact_directory)
+    if bundle.metadata.get("product") == "football":
+        from dsm_project.service.football import create_football_app
+
+        return create_football_app(bundle)
     feature_names = tuple(bundle.metadata["feature_names"])
     app = FastAPI(title="DSM Final Project API", version="0.1.0")
 
