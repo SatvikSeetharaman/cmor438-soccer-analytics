@@ -57,9 +57,12 @@ def load_config(path: str | Path = "configs/example.toml") -> ProjectConfig:
         if not str(document["dataset"].get(field, "")).strip():
             raise ValueError(f"Configuration is missing dataset.{field}")
 
-    fraction = float(document["split"].get("test_fraction", 0.0))
-    if not 0.0 < fraction < 1.0:
-        raise ValueError("split.test_fraction must lie strictly between zero and one")
+    split = document["split"]
+    if document["dataset"]["adapter"] != "openfootball":
+        fraction = float(split.get("test_fraction", 0.0))
+        if not 0.0 < fraction < 1.0:
+            message = "split.test_fraction must lie strictly between zero and one"
+            raise ValueError(message)
 
     return ProjectConfig(
         path=config_path,

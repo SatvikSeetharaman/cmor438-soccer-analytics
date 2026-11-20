@@ -1,49 +1,51 @@
 # Product contract
 
-Replace instructional text with project-specific claims before the proposal
-milestone.
+## User and decision
 
-## Users and decisions
+A soccer analyst can compare historical Premier League pairings and understand
+how team strength and recent form relate to outcomes. The demo supports
+historical dates from the first to last match in 2022–23 and 2023–24 and
+distinct clubs in that season. The pairing may be hypothetical. A model
+trained through May 2022 is used throughout the interface.
 
-Identify the intended users, the investigations or decisions the product
-supports, and decisions it must not automate.
+## Tasks and course methods
 
-## Dataset suite
+See the [dataset card](DATASET_CARD.md) for availability and provenance and the
+[learning guide](STUDENT_LEARNING_GUIDE.md) for derivations and checks.
+The following statuses refer to trusted-library reference experiments.
 
-For each dataset, record its source, license, observational unit, sampling
-process, time boundary, feature availability, target or unsupervised question,
-and known representativeness limits.
+| Family | Project task | Status and justification |
+| --- | --- | --- |
+| Historical baselines | Signed goal difference, H/D/A | Training mean and empirical class frequencies |
+| Linear regression, ridge and gradient descent | Signed goal difference | OLS and ridge compared. Gradient descent is an applicable student implementation route |
+| Logistic regression | H/D/A probabilities | Two penalty strengths compared to the historical baseline |
+| Nearest neighbors | Both supervised targets | Tests whether local similarity adds value. Small neighborhoods can produce brittle zero probabilities |
+| Linear SVM and kernels | H/D/A classification | Margin comparison is applicable. Probability calibration on a later fitting slice is pending |
+| Trees | Both supervised targets | Shallower trees test cutoffs and interactions |
+| Ensembles | Both supervised targets | Forest classification and gradient boosting report retained. Test variance and nonlinearity |
+| Neural networks | H/D/A classification | Applicable interaction model. A small architecture and chronological regularization baseline are pending |
+| K-means | Retrospective team profiles | Tests whether venue-adjusted scoring summaries form separated groups |
+| PCA | Retrospective team profiles | Tests how much scoring variation can be summarized in two dimensions |
 
-## Task-algorithm matrix
+Event-level expected goals and cross-league predictions are deferred on
+data coverage grounds. No course algorithm family is claimed as exempt.
 
-| Course family | Project task | Applicable? | Mathematical justification | Evidence |
-| --- | --- | --- | --- | --- |
-| Linear regression | | | | |
-| Logistic regression | | | | |
-| Nearest neighbors | | | | |
-| Support vector machines and kernels | | | | |
-| Decision trees | | | | |
-| Ensembles | | | | |
-| Neural networks | | | | |
-| Clustering | | | | |
-| Dimensionality reduction | | | | |
+## Evaluation
 
-Mark exclusions explicitly. Forcing an algorithm onto an incompatible target
-does not demonstrate breadth.
+Use expanding folds with MAE for signed goal difference, log loss for
+probabilities, and secondary RMSE, R-squared, Brier, balanced accuracy,
+confusion, confidence and subgroup diagnostics. Compare paired errors by
+28-day calendar blocks. Rank preliminary candidates by the mean validation
+metric, keeping all candidates. For course promotion, freeze the scope,
+metrics, dependence checks, and acceptance thresholds with genuine review
+before touching 2024–25. Validate classwise reliability and sparse clubs
+before drawing conclusions about live use.
 
-## Evaluation contract
+## Interface and responsible use
 
-Define development and final-test roles, metrics, uncertainty evidence,
-baselines, selection rules, subgroup or condition slices, and failure thresholds
-before inspecting final-test results.
-
-## System interfaces
-
-Define the data boundary, training command, experiment artifact, prediction
-API, user interface, deployment environment, logs, metrics, alerts, and
-rollback path.
-
-## Responsible-use boundary
-
-Describe privacy, security, fairness, misuse, uncertainty, and human-oversight
-requirements. State what a successful technical demonstration does not prove.
+The local web app shows a signed goal-difference estimate, home/draw/away
+probabilities, both teams' earlier form, and model identity. It serves
+`GET /health`, `GET /model`, `GET /teams`, `POST /predict`, and OpenAPI.
+See [operations](OPERATIONS.md) for invocation and failure response. Treat
+outputs as exploratory estimates for analyst judgment. The product scope
+excludes automated betting decisions, live predictions, and guaranteed results.

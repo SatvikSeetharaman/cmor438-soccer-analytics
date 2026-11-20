@@ -1,0 +1,34 @@
+[project]
+name = "Football Intelligence Engine"
+intended_user = "Soccer analyst comparing historical Premier League matchups"
+
+[dataset]
+adapter = "openfootball"
+name = "openfootball Premier League development archive"
+source = "https://github.com/openfootball/football.json"
+revision = "e6744429ee395bc86f247348c6184bb08d4eb361"
+license = "Public domain dedication"
+observation_unit = "one completed Premier League fixture"
+identifier = "match_id"
+directory = "data/local/openfootball"
+seasons = ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24"]
+
+[tasks.regression]
+name = "Predict home minus away goals"
+target = "goal_difference"
+metric = "mean_absolute_error"
+
+[tasks.classification]
+name = "Predict home, draw and away probabilities"
+target = "outcome"
+metric = "log_loss"
+
+[tasks.unsupervised]
+name = "Describe season-level team profiles"
+metric = "silhouette_and_explained_variance"
+
+[split]
+random_state = 438
+warmup_season = "2018-19"
+validation_seasons = ["2022-23", "2023-24"]
+final_test_season = "2024-25"
