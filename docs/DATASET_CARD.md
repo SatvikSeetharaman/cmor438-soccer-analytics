@@ -12,7 +12,8 @@ The downloader accessed 694,168 bytes on November 20, 2026. The
 
 [StatsBomb Open Data](https://github.com/hudl/open-data) is designed for research
 and general football analysis. Publication asks for StatsBomb attribution and
-its logo. Its public catalog lists Premier League 2003–04 and 2015–16, which
+its logo. Its agreement restricts data redistribution and commercial use.
+Its public catalog lists Premier League 2003–04 and 2015–16, which
 does not give the contiguous recent seasons desired here. Events and 360 data
 would also increase work substantially. Use the
 [competition catalog](https://github.com/hudl/open-data/blob/master/data/competitions.json)

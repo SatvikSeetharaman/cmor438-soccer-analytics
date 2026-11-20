@@ -20,10 +20,10 @@ The following statuses refer to trusted-library reference experiments.
 | Linear regression, ridge and gradient descent | Signed goal difference | OLS and ridge compared. Gradient descent is an applicable student implementation route |
 | Logistic regression | H/D/A probabilities | Two penalty strengths compared to the historical baseline |
 | Nearest neighbors | Both supervised targets | Tests whether local similarity adds value. Small neighborhoods can produce brittle zero probabilities |
-| Linear SVM and kernels | H/D/A classification | Margin comparison is applicable. Probability calibration on a later fitting slice is pending |
+| Linear SVM and kernels | H/D/A classification | Linear margins fitted on earlier seasons, calibrated on the latest training season. Nonlinear kernels are deferred |
 | Trees | Both supervised targets | Shallower trees test cutoffs and interactions |
 | Ensembles | Both supervised targets | Forest classification and gradient boosting report retained. Test variance and nonlinearity |
-| Neural networks | H/D/A classification | Applicable interaction model. A small architecture and chronological regularization baseline are pending |
+| Neural networks | H/D/A classification | Single 12-unit hidden layer with regularization and a capped iteration budget |
 | K-means | Retrospective team profiles | Tests whether venue-adjusted scoring summaries form separated groups |
 | PCA | Retrospective team profiles | Tests how much scoring variation can be summarized in two dimensions |
 

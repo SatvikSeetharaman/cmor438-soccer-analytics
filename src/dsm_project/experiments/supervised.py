@@ -79,7 +79,10 @@ def available_models(kind: TaskKind) -> tuple[str, ...]:
     return catalogs[kind]
 
 
-def _candidate(model_name: str, kind: TaskKind, seed: int) -> BaseEstimator:
+def make_reference_candidate(
+    model_name: str, kind: TaskKind, seed: int
+) -> BaseEstimator:
+    """Create an unfitted trusted estimator with fold-local preprocessing."""
     if kind is TaskKind.REGRESSION:
         models: dict[str, BaseEstimator] = {
             "linear_regression": LinearRegression(),
@@ -135,6 +138,11 @@ def evaluate_supervised_estimator(
     Student-owned estimators and trusted references use this same boundary so
     that data partitioning and metric calculation do not silently differ.
     """
+
+    if config.dataset["adapter"] == "openfootball":
+        raise ValueError(
+            "Football requires chronological folds. Use scripts/run_football.py."
+        )
 
     try:
         task = dataset.tasks[task_name]
@@ -193,7 +201,7 @@ def fit_supervised_candidate(
     except KeyError as error:
         raise ValueError(f"Unknown task: {task_name}") from error
     seed = int(config.split.get("random_state", 438))
-    estimator = _candidate(model_name, task.kind, seed)
+    estimator = make_reference_candidate(model_name, task.kind, seed)
     return evaluate_supervised_estimator(
         dataset,
         config,

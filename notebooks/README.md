@@ -42,3 +42,12 @@ not need the lecture or commit history to understand the investigation.
 Reference reports under `examples/` show completed course-topic stories. They
 are models of reasoning, not submissions. Follow the full
 [`notebook case-study standard`](../docs/NOTEBOOK_CASE_STUDY_STANDARD.md).
+
+## Football case studies
+
+Run `uv run python scripts/download_football.py` from the repository root and
+use the **DSM Project** kernel. The case studies rerun against pinned real
+development data and do not request the final-test season.
+
+- [Does team history help?](01-does-team-history-help.ipynb)
+- [What do scoring profiles capture?](02-what-do-scoring-profiles-capture.ipynb)
