@@ -25,3 +25,6 @@
 - [Morning handoff](MORNING_HANDOFF.md) links the GitHub work and reproduction
   instructions. The next work is independent student implementation and
   reviewed model selection. Keep 2024–25 sealed until the protocol is frozen.
+- Pushed the workstream branch and opened
+  [draft PR #11](https://github.com/SatvikSeetharaman/cmor438-soccer-analytics/pull/11).
+  GitHub issues #7–10 track the foundation and follow-up work.

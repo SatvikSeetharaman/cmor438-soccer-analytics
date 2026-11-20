@@ -11,7 +11,9 @@ The assignment still needs student-owned algorithm code and final review.
 Work is on `project/football-foundation` in the existing
 [private repository](https://github.com/SatvikSeetharaman/cmor438-soccer-analytics).
 The data boundary is commit `10d36b1` and the experiments are commit
-`9e57e01`. The branch history also records the product and handoff commits.
+`9e57e01`. The local product is commit `f2b30f0`.
+Review and current GitHub Actions status are on
+[draft PR #11](https://github.com/SatvikSeetharaman/cmor438-soccer-analytics/pull/11).
 
 - [#7 Foundation](https://github.com/SatvikSeetharaman/cmor438-soccer-analytics/issues/7)
 - [#8 Course scope and student implementations](https://github.com/SatvikSeetharaman/cmor438-soccer-analytics/issues/8)
@@ -68,7 +70,9 @@ are confined to tests. The 2024–25 final season is untouched.
   restricted run hit Windows temp-directory permissions. A retry with a
   writable test directory passed without modifying the assertions.
 - The two football notebooks ran from clean kernels. Ruff, the package build
-  and the template smoke path passed locally.
+  and the template smoke path passed locally. The wheel includes the football
+  UI. The source distribution excludes the downloaded data. Local Docker
+  verification was unavailable because Docker was absent from the shell.
 - Real-data API and Chrome smoke tests exercised form selection and validation.
   Invalid requests logged 422 with request IDs. Reversed feature order
   triggered a startup rejection and the original bundle recovered.
