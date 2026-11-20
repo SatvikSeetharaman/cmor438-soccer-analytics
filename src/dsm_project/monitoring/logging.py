@@ -18,7 +18,10 @@ class JSONFormatter(logging.Formatter):
             "logger": record.name,
             "message": record.getMessage(),
         }
-        for field in ("request_id", "model_name", "artifact_version", "row_count"):
+        for field in (
+            "request_id", "model_name", "artifact_version", "row_count",
+            "status_code", "latency_ms", "validation_failure",
+        ):
             if hasattr(record, field):
                 document[field] = getattr(record, field)
         return json.dumps(document, sort_keys=True)

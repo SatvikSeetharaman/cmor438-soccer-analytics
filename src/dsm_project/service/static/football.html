@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Intelligence Engine</title>
+<style>
+  :root { font: 16px/1.5 system-ui, sans-serif; color: #102720; background: #eff4ef; }
+  body { margin: 0; }
+  main { max-width: 900px; margin: auto; padding: 3rem 1.25rem; }
+  h1 { font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.06; margin: .5rem 0; }
+  h2 { font-size: 1.25rem; }
+  header p, #identity, #limitation { color: #415b52; }
+  section, form { background: #fff; border: 1px solid #cadbd0; border-radius: 12px;
+    padding: 1.25rem; margin: 1.25rem 0; }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); }
+  label { display: grid; gap: .3rem; font-weight: 600; }
+  select, input, button { font: inherit; padding: .55rem .65rem; border-radius: 6px; }
+  select, input { border: 1px solid #829c8c; min-width: 0; background: white; }
+  button { background: #16553e; color: white; border: 0; margin-top: 1rem; cursor: pointer; }
+  button:disabled { opacity: .55; cursor: wait; }
+  :focus-visible { outline: 3px solid #b46222; outline-offset: 2px; }
+  .probabilities strong { font-size: 1.6rem; display: block; }
+  meter { width: 100%; height: 1rem; accent-color: #16553e; }
+  table { width: 100%; border-collapse: collapse; text-align: right; }
+  th, td { padding: .45rem .2rem; border-bottom: 1px solid #cadbd0; }
+  tr > :first-child { text-align: left; }
+  a { color: #16553e; }
+  #message { min-height: 1.5rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p>Premier League historical analysis</p>
+    <h1>Football Intelligence Engine</h1>
+    <p>Compare two teams using results from before the selected date.</p>
+  </header>
+  <form id="match">
+    <div class="grid">
+      <label>Season<select id="season" required></select></label>
+      <label>Prediction date<input id="date" type="date" required></label>
+      <label>Home team<select id="home" required></select></label>
+      <label>Away team<select id="away" required></select></label>
+    </div>
+    <button disabled>Compare teams</button>
+    <p id="message" role="status" aria-live="polite"></p>
+  </form>
+  <section id="result" hidden aria-labelledby="result-heading">
+    <h2 id="result-heading">Outcome probabilities</h2>
+    <div class="grid probabilities">
+      <div>Home win<strong id="home-value"></strong><meter id="home-meter" min="0" max="1" aria-label="Home win probability"></meter></div>
+      <div>Draw<strong id="draw-value"></strong><meter id="draw-meter" min="0" max="1" aria-label="Draw probability"></meter></div>
+      <div>Away win<strong id="away-value"></strong><meter id="away-meter" min="0" max="1" aria-label="Away win probability"></meter></div>
+    </div>
+    <p>Predicted goal difference (home minus away) <strong id="difference"></strong></p>
+    <h2>Prior team form</h2>
+    <table>
+      <thead><tr><th scope="col">Measure</th><th scope="col" id="home-name"></th><th scope="col" id="away-name"></th></tr></thead>
+      <tbody id="profiles"></tbody>
+    </table>
+    <p id="identity"></p>
+  </section>
+  <p id="limitation"></p>
+  <a href="/docs">Interactive API documentation</a>
+</main>
+<script>
+  const el = id => document.getElementById(id);
+  const button = document.querySelector("button");
+  let seasons;
+  const labels = {
+    elo: "Elo rating", recent_games: "Recent matches",
+    goals_for: "Goals scored per match", goals_against: "Goals conceded per match",
+    points: "Points per match"
+  };
+
+  async function json(path, options) {
+    const response = await fetch(path, options);
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(typeof data.detail === "string" ? data.detail : "Request could not be completed.");
+    }
+    return data;
+  }
+
+  function setSeason() {
+    const selection = seasons[el("season").value];
+    Object.assign(el("date"), { min: selection.first, max: selection.last, value: selection.first });
+    for (const side of ["home", "away"]) {
+      el(side).replaceChildren(...selection.teams.map(team => new Option(team, team)));
+    }
+    el("away").selectedIndex = 1;
+  }
+
+  el("season").addEventListener("change", setSeason);
+  el("match").addEventListener("input", () => { el("result").hidden = true; });
+  el("match").addEventListener("submit", async event => {
+    event.preventDefault();
+    const match = Object.fromEntries(["date", "home", "away"].map(key => [key, el(key).value]));
+    for (const input of el("match").elements) input.disabled = true;
+    el("result").hidden = true;
+    el("message").textContent = "Calculating matchup…";
+    try {
+      const prediction = await json("/predict", {
+        method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(match)
+      });
+      for (const [label, probability] of Object.entries(prediction.probabilities)) {
+        el(label + "-value").textContent = (100 * probability).toFixed(1) + "%";
+        el(label + "-meter").value = probability;
+      }
+      el("difference").textContent = prediction.goal_difference.toFixed(2) + " goals";
+      el("home-name").textContent = match.home;
+      el("away-name").textContent = match.away;
+      el("profiles").replaceChildren(...Object.entries(labels).map(([key, label]) => {
+        const row = document.createElement("tr");
+        const heading = document.createElement("th");
+        heading.scope = "row";
+        heading.textContent = label;
+        row.append(heading);
+        for (const side of ["home", "away"]) {
+          const value = prediction[side + "_profile"][key];
+          row.insertCell().textContent = value.toFixed(["elo", "recent_games"].includes(key) ? 0 : 2);
+        }
+        return row;
+      }));
+      el("identity").textContent = prediction.artifact_version + " · request " + prediction.request_id;
+      el("result").hidden = false;
+      el("message").textContent = "Matchup comparison ready.";
+    } catch (error) {
+      el("message").textContent = error.message;
+    } finally {
+      for (const input of el("match").elements) input.disabled = false;
+    }
+  });
+
+  Promise.all([json("/teams"), json("/model")]).then(([catalog, model]) => {
+    seasons = catalog;
+    el("season").replaceChildren(...Object.keys(seasons).map(season => new Option(season, season)));
+    el("limitation").textContent = model.provenance + ". " + model.limitations;
+    setSeason();
+    button.disabled = false;
+  }).catch(error => { el("message").textContent = error.message; });
+</script>
+</body>
+</html>

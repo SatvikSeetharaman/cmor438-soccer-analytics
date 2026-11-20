@@ -1,4 +1,24 @@
-# Data Science and Machine Learning Project Template
+# Football Intelligence Engine
+
+Machine learning for pre-match prediction, team profiling, and uncertainty
+analysis. The initial product compares historical Premier League matchups using
+only results from earlier dates. The local demo serves scikit-learn reference
+models.
+
+```sh
+uv sync --locked
+uv run python scripts/setup_project.py
+uv run python scripts/download_football.py
+uv run python scripts/run_football.py
+uv run python scripts/smoke_football.py
+uv run dsm-project serve --artifact artifacts/football-reference
+```
+
+Open the local UI at `http://127.0.0.1:8000/` or the API documentation at
+`http://127.0.0.1:8000/docs`. Start with [the morning handoff](MORNING_HANDOFF.md),
+[the project overview](docs/PROJECT_OVERVIEW.md), and [the validation report](docs/VALIDATION_RESULTS.md).
+
+## Inherited course template
 
 This is the starting repository for final projects in Rice University
 CMOR 438 / INDE 577. It is a small but complete machine-learning system that

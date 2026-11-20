@@ -30,6 +30,8 @@ def save_bundle(
     dataset: ProjectDataset,
     config: ProjectConfig,
     directory: str | Path,
+    *,
+    extra_metadata: dict[str, Any] | None = None,
 ) -> Path:
     """Write a model and human-readable metadata into one artifact directory."""
 
@@ -52,6 +54,11 @@ def save_bundle(
         "configuration": str(config.path),
         "python_version": platform.python_version(),
     }
+    if extra_metadata:
+        overlap = metadata.keys() & extra_metadata.keys()
+        if overlap:
+            raise ValueError(f"Reserved artifact metadata fields: {sorted(overlap)}")
+        metadata.update(extra_metadata)
     metadata_path.write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n")
     return output
 

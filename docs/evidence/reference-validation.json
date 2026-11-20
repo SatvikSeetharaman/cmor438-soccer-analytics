@@ -1,0 +1,1860 @@
+{
+  "provenance": "scikit-learn reference",
+  "folds": {
+    "2022-23": {
+      "train_rows": 1140,
+      "validation_rows": 380,
+      "train_through": "2022-05-22",
+      "validation_start": "2022-08-05",
+      "validation_end": "2023-05-28",
+      "outcome_counts": {
+        "home": 184,
+        "away": 109,
+        "draw": 87
+      },
+      "feature_mean_shift_in_training_sd": {
+        "home_elo": 0.15521068523503126,
+        "home_recent_games": 0.06645174184357752,
+        "home_goals_for": 0.10203595346897908,
+        "home_goals_against": 0.13280683580092104,
+        "home_points": -0.01207438779261611,
+        "away_elo": 0.1640975303098759,
+        "away_recent_games": 0.037536456750964224,
+        "away_goals_for": 0.08953658073876808,
+        "away_goals_against": 0.06626434708294833,
+        "away_points": 0.017918479469429392
+      },
+      "constant_training_features": [],
+      "regression": {
+        "training_mean": {
+          "mae": 1.4634626038781164,
+          "rmse": 1.916752577463585,
+          "r2": -0.015856815692522286,
+          "residual_p10_p50_p90": [
+            -2.1763157894736844,
+            -0.1763157894736842,
+            2.8236842105263156
+          ],
+          "gain_95_percent_block_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "ridge_10": {
+          "mae": 1.3670402268692596,
+          "rmse": 1.7506546730586239,
+          "r2": 0.1525748250729393,
+          "residual_p10_p50_p90": [
+            -1.9665524579866747,
+            0.22819560605999295,
+            2.2553131582498587
+          ],
+          "gain_95_percent_block_interval": [
+            0.049474734578172926,
+            0.129104801300515
+          ]
+        },
+        "linear_regression": {
+          "mae": 1.3686353663760722,
+          "rmse": 1.7526092082779896,
+          "r2": 0.15068153682578034,
+          "residual_p10_p50_p90": [
+            -1.9769417823652167,
+            0.21567800696774667,
+            2.2753754068249417
+          ],
+          "gain_95_percent_block_interval": [
+            0.04783632452201077,
+            0.12743916134692176
+          ]
+        },
+        "neighbors": {
+          "mae": 1.4733082706766918,
+          "rmse": 1.8873910294263834,
+          "r2": 0.015027376003749038,
+          "residual_p10_p50_p90": [
+            -2.142857142857143,
+            0.14285714285714285,
+            2.7142857142857144
+          ],
+          "gain_95_percent_block_interval": [
+            -0.07886415380105531,
+            0.05494170994496548
+          ]
+        },
+        "decision_tree": {
+          "mae": 1.4581521288593804,
+          "rmse": 1.9052305177970923,
+          "r2": -0.003680405537941356,
+          "residual_p10_p50_p90": [
+            -2.033707865168539,
+            -0.012765957446808418,
+            2.747603833865815
+          ],
+          "gain_95_percent_block_interval": [
+            -0.050680387492001946,
+            0.06295936301904799
+          ]
+        },
+        "gradient_boosting": {
+          "mae": 1.4660083015289904,
+          "rmse": 1.8786805507181379,
+          "r2": 0.024097870844273728,
+          "residual_p10_p50_p90": [
+            -2.2034126199810444,
+            0.16802969964985404,
+            2.5587769264451112
+          ],
+          "gain_95_percent_block_interval": [
+            -0.07226006079954563,
+            0.07134486655970587
+          ]
+        }
+      },
+      "classification": {
+        "class_frequency": {
+          "log_loss": 1.0574846484962317,
+          "accuracy": 0.4842105263157895,
+          "balanced_accuracy": 0.3333333333333333,
+          "brier": 0.6388273314866112,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              0,
+              0,
+              109
+            ],
+            [
+              0,
+              0,
+              87
+            ],
+            [
+              0,
+              0,
+              184
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 380,
+              "confidence": 0.4201754385964912,
+              "accuracy": 0.4842105263157895
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 380,
+              "probability": 0.23070175438596494,
+              "observed_rate": 0.22894736842105262
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 1.0240419754495513
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.0579305508035208
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.0657742447121215
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 1.0481762192258748
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "logistic_c_0_1": {
+          "log_loss": 0.9964371606578604,
+          "accuracy": 0.5394736842105263,
+          "balanced_accuracy": 0.45987900545140276,
+          "brier": 0.5947101874086164,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              71,
+              0,
+              38
+            ],
+            [
+              43,
+              0,
+              44
+            ],
+            [
+              50,
+              0,
+              134
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 43,
+              "confidence": 0.3812742814879393,
+              "accuracy": 0.46511627906976744
+            },
+            {
+              "rows": 172,
+              "confidence": 0.46983053513949175,
+              "accuracy": 0.4883720930232558
+            },
+            {
+              "rows": 111,
+              "confidence": 0.6202138871524248,
+              "accuracy": 0.5855855855855856
+            },
+            {
+              "rows": 54,
+              "confidence": 0.7674960105914822,
+              "accuracy": 0.6666666666666666
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 33,
+              "probability": 0.12027740268845327,
+              "observed_rate": 0.12121212121212122
+            },
+            {
+              "rows": 213,
+              "probability": 0.20622097289577176,
+              "observed_rate": 0.24882629107981222
+            },
+            {
+              "rows": 133,
+              "probability": 0.2747740923195232,
+              "observed_rate": 0.21804511278195488
+            },
+            {
+              "rows": 1,
+              "probability": 0.4046188534574843,
+              "observed_rate": 1.0
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.5889997419231615
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.001869659574323
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.048160812392888
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 0.9383564120615444
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.04250934027035677,
+            0.07761296518183365
+          ]
+        },
+        "small_neural_network": {
+          "log_loss": 1.0279149724791603,
+          "accuracy": 0.5157894736842106,
+          "balanced_accuracy": 0.440908559481727,
+          "brier": 0.6120883503037752,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              64,
+              3,
+              42
+            ],
+            [
+              40,
+              3,
+              44
+            ],
+            [
+              50,
+              5,
+              129
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 37,
+              "confidence": 0.37748608124901806,
+              "accuracy": 0.32432432432432434
+            },
+            {
+              "rows": 171,
+              "confidence": 0.4765088197533128,
+              "accuracy": 0.49122807017543857
+            },
+            {
+              "rows": 108,
+              "confidence": 0.6170214455215512,
+              "accuracy": 0.5462962962962963
+            },
+            {
+              "rows": 64,
+              "confidence": 0.7843852470021488,
+              "accuracy": 0.640625
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 57,
+              "probability": 0.10449465354615031,
+              "observed_rate": 0.19298245614035087
+            },
+            {
+              "rows": 178,
+              "probability": 0.20109736643977766,
+              "observed_rate": 0.25280898876404495
+            },
+            {
+              "rows": 124,
+              "probability": 0.2892886891945605,
+              "observed_rate": 0.1935483870967742
+            },
+            {
+              "rows": 21,
+              "probability": 0.4040990471571119,
+              "observed_rate": 0.3333333333333333
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.7787525184354948
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.0312371385330756
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.0716556024823531
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 0.9787983991236195
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.00499793525710212,
+            0.057328972583998675
+          ],
+          "optimizer_iterations": 500,
+          "optimizer_hit_limit": true
+        },
+        "logistic_regression": {
+          "log_loss": 1.0009018067568474,
+          "accuracy": 0.5421052631578948,
+          "balanced_accuracy": 0.4629371094269379,
+          "brier": 0.5974754471088563,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              72,
+              0,
+              37
+            ],
+            [
+              44,
+              0,
+              43
+            ],
+            [
+              50,
+              0,
+              134
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 43,
+              "confidence": 0.3787112913116509,
+              "accuracy": 0.5581395348837209
+            },
+            {
+              "rows": 166,
+              "confidence": 0.46929468779464895,
+              "accuracy": 0.45180722891566266
+            },
+            {
+              "rows": 104,
+              "confidence": 0.6135659072303123,
+              "accuracy": 0.6153846153846154
+            },
+            {
+              "rows": 67,
+              "confidence": 0.7632820280505932,
+              "accuracy": 0.6417910447761194
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 38,
+              "probability": 0.11999600691306331,
+              "observed_rate": 0.15789473684210525
+            },
+            {
+              "rows": 203,
+              "probability": 0.20478231228694616,
+              "observed_rate": 0.2561576354679803
+            },
+            {
+              "rows": 135,
+              "probability": 0.2752605481109639,
+              "observed_rate": 0.2074074074074074
+            },
+            {
+              "rows": 4,
+              "probability": 0.3670765861067638,
+              "observed_rate": 0.25
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.5828237954245027
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.0064761802412787
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.0524684860286173
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 0.9429973233287705
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.03707865560265293,
+            0.07370375476726902
+          ]
+        },
+        "neighbors": {
+          "log_loss": 3.3706925525358358,
+          "accuracy": 0.46578947368421053,
+          "balanced_accuracy": 0.4282331311408516,
+          "brier": 0.6720730397422127,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              62,
+              14,
+              33
+            ],
+            [
+              38,
+              15,
+              34
+            ],
+            [
+              55,
+              29,
+              100
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 138,
+              "confidence": 0.42857142857142844,
+              "accuracy": 0.391304347826087
+            },
+            {
+              "rows": 125,
+              "confidence": 0.5714285714285712,
+              "accuracy": 0.488
+            },
+            {
+              "rows": 117,
+              "confidence": 0.7765567765567766,
+              "accuracy": 0.5299145299145299
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 189,
+              "probability": 0.09599395313681026,
+              "observed_rate": 0.2328042328042328
+            },
+            {
+              "rows": 115,
+              "probability": 0.28571428571428564,
+              "observed_rate": 0.22608695652173913
+            },
+            {
+              "rows": 76,
+              "probability": 0.4830827067669173,
+              "observed_rate": 0.2236842105263158
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.7322250314064913
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 3.301533981219245
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 2.896184237922189
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 3.6849348396194963
+            }
+          },
+          "gain_95_percent_block_interval": [
+            -2.920952670514764,
+            -1.501648484137219
+          ]
+        },
+        "decision_tree": {
+          "log_loss": 1.9501166303434985,
+          "accuracy": 0.4868421052631579,
+          "balanced_accuracy": 0.4289332780093134,
+          "brier": 0.6566843203646067,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              72,
+              5,
+              32
+            ],
+            [
+              41,
+              2,
+              44
+            ],
+            [
+              71,
+              2,
+              111
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 32,
+              "confidence": 0.3798449612403101,
+              "accuracy": 0.28125
+            },
+            {
+              "rows": 157,
+              "confidence": 0.47753339737640677,
+              "accuracy": 0.43312101910828027
+            },
+            {
+              "rows": 103,
+              "confidence": 0.6164334047829194,
+              "accuracy": 0.6310679611650486
+            },
+            {
+              "rows": 88,
+              "confidence": 0.8382365746244915,
+              "accuracy": 0.48863636363636365
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 99,
+              "probability": 0.08449373225575106,
+              "observed_rate": 0.1919191919191919
+            },
+            {
+              "rows": 101,
+              "probability": 0.20121726458360126,
+              "observed_rate": 0.2079207920792079
+            },
+            {
+              "rows": 171,
+              "probability": 0.2881391918451402,
+              "observed_rate": 0.2631578947368421
+            },
+            {
+              "rows": 9,
+              "probability": 0.9333333333333333,
+              "observed_rate": 0.2222222222222222
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 7.518642743482772
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.835739562322802
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.5705331526249677
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 2.292281485535453
+            }
+          },
+          "gain_95_percent_block_interval": [
+            -1.4695263977097028,
+            -0.3176001447927299
+          ]
+        },
+        "random_forest": {
+          "log_loss": 1.048625052517017,
+          "accuracy": 0.5078947368421053,
+          "balanced_accuracy": 0.4303146591841694,
+          "brier": 0.6249789473684211,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              55,
+              11,
+              43
+            ],
+            [
+              39,
+              6,
+              42
+            ],
+            [
+              43,
+              9,
+              132
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 28,
+              "confidence": 0.37642857142857145,
+              "accuracy": 0.35714285714285715
+            },
+            {
+              "rows": 174,
+              "confidence": 0.4725862068965517,
+              "accuracy": 0.4425287356321839
+            },
+            {
+              "rows": 129,
+              "confidence": 0.612170542635659,
+              "accuracy": 0.6046511627906976
+            },
+            {
+              "rows": 49,
+              "confidence": 0.7663265306122449,
+              "accuracy": 0.5714285714285714
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 74,
+              "probability": 0.10445945945945946,
+              "observed_rate": 0.25675675675675674
+            },
+            {
+              "rows": 152,
+              "probability": 0.19480263157894734,
+              "observed_rate": 0.23684210526315788
+            },
+            {
+              "rows": 106,
+              "probability": 0.2873584905660377,
+              "observed_rate": 0.18867924528301888
+            },
+            {
+              "rows": 48,
+              "probability": 0.431875,
+              "observed_rate": 0.25
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.9070333250838924
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.0505129422161252
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.1152567501452708
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 0.973803984230542
+            }
+          },
+          "gain_95_percent_block_interval": [
+            -0.03536599145839455,
+            0.05849330727630784
+          ]
+        },
+        "gradient_boosting": {
+          "log_loss": 1.1120089079501194,
+          "accuracy": 0.4868421052631579,
+          "balanced_accuracy": 0.4098894742231331,
+          "brier": 0.65943088088671,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              47,
+              15,
+              47
+            ],
+            [
+              33,
+              8,
+              46
+            ],
+            [
+              43,
+              11,
+              130
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 20,
+              "confidence": 0.36911444958922496,
+              "accuracy": 0.25
+            },
+            {
+              "rows": 159,
+              "confidence": 0.4736620062445908,
+              "accuracy": 0.44654088050314467
+            },
+            {
+              "rows": 117,
+              "confidence": 0.6177540722526556,
+              "accuracy": 0.5726495726495726
+            },
+            {
+              "rows": 84,
+              "confidence": 0.7961413265706835,
+              "accuracy": 0.5
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 112,
+              "probability": 0.09505423927619772,
+              "observed_rate": 0.26785714285714285
+            },
+            {
+              "rows": 132,
+              "probability": 0.1998896025596856,
+              "observed_rate": 0.22727272727272727
+            },
+            {
+              "rows": 91,
+              "probability": 0.2967147527480567,
+              "observed_rate": 0.1978021978021978
+            },
+            {
+              "rows": 45,
+              "probability": 0.48955452606463773,
+              "observed_rate": 0.2
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.8960680034252331
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.1148881200104515
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.164712683168998
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 1.0528275737657926
+            }
+          },
+          "gain_95_percent_block_interval": [
+            -0.10563535010843204,
+            0.003717178374947619
+          ]
+        },
+        "chronologically_calibrated_linear_svm": {
+          "log_loss": 1.0067528871121083,
+          "accuracy": 0.5368421052631579,
+          "balanced_accuracy": 0.4575942151248535,
+          "brier": 0.6012619860959416,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              69,
+              0,
+              40
+            ],
+            [
+              45,
+              1,
+              41
+            ],
+            [
+              49,
+              1,
+              134
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 93,
+              "confidence": 0.5156357062619163,
+              "accuracy": 0.40860215053763443
+            },
+            {
+              "rows": 287,
+              "confidence": 0.5831098832188569,
+              "accuracy": 0.578397212543554
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 378,
+              "probability": 0.22973295426482776,
+              "observed_rate": 0.2275132275132275
+            },
+            {
+              "rows": 2,
+              "probability": 0.6048552358261012,
+              "observed_rate": 0.5
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.9059586245627574
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.0080968106127663
+            },
+            "elo_gap_under_100": {
+              "rows": 201,
+              "log_loss": 1.0701413927330157
+            },
+            "elo_gap_at_least_100": {
+              "rows": 179,
+              "log_loss": 0.9355736154372345
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.024675650665086753,
+            0.07564109270496987
+          ]
+        }
+      }
+    },
+    "2023-24": {
+      "train_rows": 1520,
+      "validation_rows": 380,
+      "train_through": "2023-05-28",
+      "validation_start": "2023-08-11",
+      "validation_end": "2024-05-19",
+      "outcome_counts": {
+        "home": 175,
+        "away": 123,
+        "draw": 82
+      },
+      "feature_mean_shift_in_training_sd": {
+        "home_elo": 0.15912766051551586,
+        "home_recent_games": 0.06937176182341398,
+        "home_goals_for": 0.3120724604595623,
+        "home_goals_against": 0.35776523276853495,
+        "home_points": -0.0011230487426260897,
+        "away_elo": 0.16033741986813935,
+        "away_recent_games": 0.014723804462963596,
+        "away_goals_for": 0.3302393470223647,
+        "away_goals_against": 0.36460730211798625,
+        "away_points": -0.002147428680289931
+      },
+      "constant_training_features": [],
+      "regression": {
+        "training_mean": {
+          "mae": 1.602856648199446,
+          "rmse": 2.0606390076396437,
+          "r2": -0.0016991264727599376,
+          "residual_p10_p50_p90": [
+            -2.2361842105263157,
+            -0.2361842105263158,
+            2.7638157894736843
+          ],
+          "gain_95_percent_block_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "ridge_10": {
+          "mae": 1.3671363761850288,
+          "rmse": 1.793916689166462,
+          "r2": 0.24083181053992664,
+          "residual_p10_p50_p90": [
+            -2.0965760572048064,
+            0.10503080778408763,
+            2.280414303326696
+          ],
+          "gain_95_percent_block_interval": [
+            0.10714609746950776,
+            0.36246361167129243
+          ]
+        },
+        "linear_regression": {
+          "mae": 1.36731659320322,
+          "rmse": 1.7941288009189782,
+          "r2": 0.24065227264270417,
+          "residual_p10_p50_p90": [
+            -2.0968518544957218,
+            0.10238381588460937,
+            2.287734579152501
+          ],
+          "gain_95_percent_block_interval": [
+            0.10580744488048445,
+            0.36350019455678806
+          ]
+        },
+        "neighbors": {
+          "mae": 1.5127819548872181,
+          "rmse": 1.9461879895465417,
+          "r2": 0.10648255145983399,
+          "residual_p10_p50_p90": [
+            -2.2857142857142856,
+            0.1428571428571428,
+            2.571428571428571
+          ],
+          "gain_95_percent_block_interval": [
+            -0.042895966182101085,
+            0.2164930599523013
+          ]
+        },
+        "decision_tree": {
+          "mae": 1.462654256267308,
+          "rmse": 1.9173873631142595,
+          "r2": 0.13273227794527753,
+          "residual_p10_p50_p90": [
+            -2.3917525773195876,
+            0.22222222222222232,
+            2.4723127035830617
+          ],
+          "gain_95_percent_block_interval": [
+            0.03496886985110331,
+            0.23978833635508526
+          ]
+        },
+        "gradient_boosting": {
+          "mae": 1.4302946927041686,
+          "rmse": 1.8954922649399006,
+          "r2": 0.15242625616885364,
+          "residual_p10_p50_p90": [
+            -2.2605227491655726,
+            0.11886908115506917,
+            2.4900831341479295
+          ],
+          "gain_95_percent_block_interval": [
+            0.05594109944916745,
+            0.28304075159689784
+          ]
+        }
+      },
+      "classification": {
+        "class_frequency": {
+          "log_loss": 1.054378783861677,
+          "accuracy": 0.4605263157894737,
+          "balanced_accuracy": 0.3333333333333333,
+          "brier": 0.6374783587257618,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              0,
+              0,
+              123
+            ],
+            [
+              0,
+              0,
+              82
+            ],
+            [
+              0,
+              0,
+              175
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 380,
+              "confidence": 0.4361842105263156,
+              "accuracy": 0.4605263157894737
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 380,
+              "probability": 0.23026315789473678,
+              "observed_rate": 0.21578947368421053
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 1.011111788113876
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.0549556771383144
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.0667327378426856
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 1.0436071097008959
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "logistic_c_0_1": {
+          "log_loss": 0.9282188414188415,
+          "accuracy": 0.5789473684210527,
+          "balanced_accuracy": 0.4858846302748742,
+          "brier": 0.5466589179259828,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              83,
+              0,
+              40
+            ],
+            [
+              36,
+              0,
+              46
+            ],
+            [
+              38,
+              0,
+              137
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 49,
+              "confidence": 0.37849580748320255,
+              "accuracy": 0.4489795918367347
+            },
+            {
+              "rows": 167,
+              "confidence": 0.47378343538826784,
+              "accuracy": 0.46107784431137727
+            },
+            {
+              "rows": 101,
+              "confidence": 0.6199587985463868,
+              "accuracy": 0.693069306930693
+            },
+            {
+              "rows": 63,
+              "confidence": 0.7779517964090106,
+              "accuracy": 0.8095238095238095
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 39,
+              "probability": 0.1151073276334455,
+              "observed_rate": 0.1282051282051282
+            },
+            {
+              "rows": 209,
+              "probability": 0.21311613742812444,
+              "observed_rate": 0.21052631578947367
+            },
+            {
+              "rows": 131,
+              "probability": 0.2786578862290067,
+              "observed_rate": 0.25190839694656486
+            },
+            {
+              "rows": 1,
+              "probability": 0.3627758716115209,
+              "observed_rate": 0.0
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.7439819200986646
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 0.9306753337031105
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.044739004547326
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 0.8266224430260251
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.06054399822721675,
+            0.18756947366396642
+          ]
+        },
+        "small_neural_network": {
+          "log_loss": 0.9444505964408471,
+          "accuracy": 0.5526315789473685,
+          "balanced_accuracy": 0.46365466511807973,
+          "brier": 0.5602527095593777,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              71,
+              7,
+              45
+            ],
+            [
+              33,
+              3,
+              46
+            ],
+            [
+              37,
+              2,
+              136
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 33,
+              "confidence": 0.38212196175849944,
+              "accuracy": 0.42424242424242425
+            },
+            {
+              "rows": 171,
+              "confidence": 0.48145312619784286,
+              "accuracy": 0.4502923976608187
+            },
+            {
+              "rows": 105,
+              "confidence": 0.6186042037149532,
+              "accuracy": 0.5619047619047619
+            },
+            {
+              "rows": 71,
+              "confidence": 0.7843060511663016,
+              "accuracy": 0.8450704225352113
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 50,
+              "probability": 0.11223980683831186,
+              "observed_rate": 0.16
+            },
+            {
+              "rows": 218,
+              "probability": 0.20716368025652354,
+              "observed_rate": 0.22018348623853212
+            },
+            {
+              "rows": 89,
+              "probability": 0.2814006303646572,
+              "observed_rate": 0.24719101123595505
+            },
+            {
+              "rows": 23,
+              "probability": 0.4376699654671678,
+              "observed_rate": 0.17391304347826086
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.7409561637838266
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 0.9471638555429407
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.061262734197749
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 0.8425996191848294
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.04603257073665203,
+            0.17208818476873677
+          ],
+          "optimizer_iterations": 374,
+          "optimizer_hit_limit": false
+        },
+        "logistic_regression": {
+          "log_loss": 0.9279727861560212,
+          "accuracy": 0.5763157894736842,
+          "balanced_accuracy": 0.48317460317460315,
+          "brier": 0.5466120989661719,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              82,
+              0,
+              41
+            ],
+            [
+              36,
+              0,
+              46
+            ],
+            [
+              38,
+              0,
+              137
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 51,
+              "confidence": 0.3784970843401557,
+              "accuracy": 0.4117647058823529
+            },
+            {
+              "rows": 163,
+              "confidence": 0.4757126737775786,
+              "accuracy": 0.4601226993865031
+            },
+            {
+              "rows": 101,
+              "confidence": 0.6218877260917095,
+              "accuracy": 0.693069306930693
+            },
+            {
+              "rows": 65,
+              "confidence": 0.7819284857691592,
+              "accuracy": 0.8153846153846154
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 42,
+              "probability": 0.11529718602528118,
+              "observed_rate": 0.11904761904761904
+            },
+            {
+              "rows": 202,
+              "probability": 0.21273789332064774,
+              "observed_rate": 0.21287128712871287
+            },
+            {
+              "rows": 135,
+              "probability": 0.27942938101802883,
+              "observed_rate": 0.2518518518518518
+            },
+            {
+              "rows": 1,
+              "probability": 0.3674262391543617,
+              "observed_rate": 0.0
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.7448764931553896
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 0.9304140700626962
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.044995067469867
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 0.825938580281387
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.05847334609022495,
+            0.18975215833785578
+          ]
+        },
+        "neighbors": {
+          "log_loss": 2.7859563304236477,
+          "accuracy": 0.4631578947368421,
+          "balanced_accuracy": 0.4126596980255517,
+          "brier": 0.6341568206229861,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              72,
+              21,
+              30
+            ],
+            [
+              33,
+              9,
+              40
+            ],
+            [
+              56,
+              24,
+              95
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 113,
+              "confidence": 0.4285714285714286,
+              "accuracy": 0.25663716814159293
+            },
+            {
+              "rows": 142,
+              "confidence": 0.5714285714285712,
+              "accuracy": 0.4788732394366197
+            },
+            {
+              "rows": 125,
+              "confidence": 0.7737142857142855,
+              "accuracy": 0.632
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 208,
+              "probability": 0.09340659340659338,
+              "observed_rate": 0.21634615384615385
+            },
+            {
+              "rows": 100,
+              "probability": 0.2857142857142856,
+              "observed_rate": 0.2
+            },
+            {
+              "rows": 72,
+              "probability": 0.47619047619047605,
+              "observed_rate": 0.2361111111111111
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.6665242180120841
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 2.733955318898124
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 2.2478205948867354
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 3.106904533901008
+            }
+          },
+          "gain_95_percent_block_interval": [
+            -2.7323397634108306,
+            -0.8423685654327245
+          ]
+        },
+        "decision_tree": {
+          "log_loss": 1.8812280616497463,
+          "accuracy": 0.531578947368421,
+          "balanced_accuracy": 0.45269841269841277,
+          "brier": 0.5974314556829268,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              79,
+              5,
+              39
+            ],
+            [
+              34,
+              2,
+              46
+            ],
+            [
+              52,
+              2,
+              121
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 27,
+              "confidence": 0.3699999999999999,
+              "accuracy": 0.14814814814814814
+            },
+            {
+              "rows": 141,
+              "confidence": 0.44779828192616017,
+              "accuracy": 0.46808510638297873
+            },
+            {
+              "rows": 101,
+              "confidence": 0.6055498911324221,
+              "accuracy": 0.5445544554455446
+            },
+            {
+              "rows": 111,
+              "confidence": 0.7773997028675689,
+              "accuracy": 0.6936936936936937
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 98,
+              "probability": 0.12028174101499005,
+              "observed_rate": 0.14285714285714285
+            },
+            {
+              "rows": 101,
+              "probability": 0.19821509176777513,
+              "observed_rate": 0.25742574257425743
+            },
+            {
+              "rows": 159,
+              "probability": 0.2725719924177508,
+              "observed_rate": 0.23270440251572327
+            },
+            {
+              "rows": 22,
+              "probability": 0.5514069264069265,
+              "observed_rate": 0.22727272727272727
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.852578892278801
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 1.8548133307291865
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 2.399841130944958
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 1.3549064694954747
+            }
+          },
+          "gain_95_percent_block_interval": [
+            -1.3982265382271633,
+            -0.24102061334458078
+          ]
+        },
+        "random_forest": {
+          "log_loss": 0.9833167470695179,
+          "accuracy": 0.5394736842105263,
+          "balanced_accuracy": 0.4643825009678668,
+          "brier": 0.5824315789473684,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              73,
+              8,
+              42
+            ],
+            [
+              30,
+              7,
+              45
+            ],
+            [
+              43,
+              7,
+              125
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 22,
+              "confidence": 0.3704545454545455,
+              "accuracy": 0.45454545454545453
+            },
+            {
+              "rows": 176,
+              "confidence": 0.4713068181818182,
+              "accuracy": 0.44886363636363635
+            },
+            {
+              "rows": 130,
+              "confidence": 0.613,
+              "accuracy": 0.6076923076923076
+            },
+            {
+              "rows": 52,
+              "confidence": 0.7692307692307695,
+              "accuracy": 0.7115384615384616
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 83,
+              "probability": 0.10301204819277107,
+              "observed_rate": 0.14457831325301204
+            },
+            {
+              "rows": 158,
+              "probability": 0.19443037974683544,
+              "observed_rate": 0.2088607594936709
+            },
+            {
+              "rows": 92,
+              "probability": 0.29043478260869565,
+              "observed_rate": 0.25
+            },
+            {
+              "rows": 47,
+              "probability": 0.40085106382978714,
+              "observed_rate": 0.2978723404255319
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.6279609578229923
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 0.9880548242594716
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.0694210438906597
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 0.9082405867870444
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.029070667393980943,
+            0.1125052753264378
+          ]
+        },
+        "gradient_boosting": {
+          "log_loss": 0.9720313574318366,
+          "accuracy": 0.5394736842105263,
+          "balanced_accuracy": 0.45413085559427024,
+          "brier": 0.5727122302569647,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              71,
+              7,
+              45
+            ],
+            [
+              32,
+              3,
+              47
+            ],
+            [
+              35,
+              9,
+              131
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 28,
+              "confidence": 0.379645735411,
+              "accuracy": 0.35714285714285715
+            },
+            {
+              "rows": 161,
+              "confidence": 0.4718287994101144,
+              "accuracy": 0.422360248447205
+            },
+            {
+              "rows": 105,
+              "confidence": 0.6253002250820109,
+              "accuracy": 0.6095238095238096
+            },
+            {
+              "rows": 86,
+              "confidence": 0.7694812666480574,
+              "accuracy": 0.7325581395348837
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 110,
+              "probability": 0.11328099859951948,
+              "observed_rate": 0.17272727272727273
+            },
+            {
+              "rows": 159,
+              "probability": 0.1997858810586593,
+              "observed_rate": 0.20754716981132076
+            },
+            {
+              "rows": 83,
+              "probability": 0.28831611711169697,
+              "observed_rate": 0.30120481927710846
+            },
+            {
+              "rows": 28,
+              "probability": 0.47149330202934336,
+              "observed_rate": 0.17857142857142858
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.9632871292038294
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 0.9721479471415434
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.0377416888604887
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 0.914737127565475
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.013960127440919583,
+            0.14837119014411004
+          ]
+        },
+        "chronologically_calibrated_linear_svm": {
+          "log_loss": 0.9753073646866306,
+          "accuracy": 0.5657894736842105,
+          "balanced_accuracy": 0.47797135114208283,
+          "brier": 0.5797274642840102,
+          "class_order": [
+            "away",
+            "draw",
+            "home"
+          ],
+          "confusion": [
+            [
+              85,
+              0,
+              38
+            ],
+            [
+              36,
+              0,
+              46
+            ],
+            [
+              45,
+              0,
+              130
+            ]
+          ],
+          "calibration": [
+            {
+              "rows": 166,
+              "confidence": 0.4372509017671189,
+              "accuracy": 0.5120481927710844
+            },
+            {
+              "rows": 214,
+              "confidence": 0.6358236561154524,
+              "accuracy": 0.6074766355140186
+            }
+          ],
+          "draw_calibration": [
+            {
+              "rows": 211,
+              "probability": 0.19142160820894194,
+              "observed_rate": 0.21800947867298578
+            },
+            {
+              "rows": 169,
+              "probability": 0.2785633373741192,
+              "observed_rate": 0.21301775147928995
+            }
+          ],
+          "slices": {
+            "sparse_history": {
+              "rows": 5,
+              "log_loss": 0.7437543483684298
+            },
+            "full_history": {
+              "rows": 375,
+              "log_loss": 0.97839473823754
+            },
+            "elo_gap_under_100": {
+              "rows": 177,
+              "log_loss": 1.0692491886215
+            },
+            "elo_gap_at_least_100": {
+              "rows": 203,
+              "log_loss": 0.893397498497114
+            }
+          },
+          "gain_95_percent_block_interval": [
+            0.04350090085948274,
+            0.12042304313092125
+          ]
+        }
+      }
+    }
+  },
+  "team_profiling": {
+    "rows": 120,
+    "explained_variance": [
+      0.6701967067584012,
+      0.1541231566782656
+    ],
+    "reconstruction_rmse": 0.4191421436259224,
+    "pca_loadings": {
+      "home_attack": [
+        0.5343691012445044,
+        0.43838143535962426
+      ],
+      "away_attack": [
+        0.5235943918537801,
+        0.48901518761656726
+      ],
+      "home_defense": [
+        -0.4769319173325042,
+        0.42634711397959374
+      ],
+      "away_defense": [
+        -0.4613399209736271,
+        0.622024116746
+      ]
+    },
+    "candidates": [
+      {
+        "clusters": 2,
+        "silhouette": 0.3538756386183559,
+        "minimum_seed_agreement": 1.0
+      },
+      {
+        "clusters": 3,
+        "silhouette": 0.2778628960217311,
+        "minimum_seed_agreement": 0.9592366936309659
+      },
+      {
+        "clusters": 4,
+        "silhouette": 0.25356571767357805,
+        "minimum_seed_agreement": 0.48184721919461754
+      },
+      {
+        "clusters": 5,
+        "silhouette": 0.2547006948054069,
+        "minimum_seed_agreement": 0.7055435247476359
+      }
+    ],
+    "chosen_k": 2,
+    "cluster_sizes": [
+      75,
+      45
+    ]
+  }
+}
